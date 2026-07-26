@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Waaskey React example — embedded MPC wallet: email-OTP login, in-browser keygen, wallet widget",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "packageManager": "pnpm@10.28.2",
   "scripts": {
     "start": "vite",
