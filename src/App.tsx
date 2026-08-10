@@ -47,14 +47,44 @@ function Demo({ email }: { email: string }) {
   );
 }
 
+/**
+ * The two variables the demo cannot run without, read once at startup.
+ *
+ * `baseUrl` is required by the SDK — there is no default (the old one pointed at a host
+ * that does not resolve) and no public sandbox. Checking here turns "blank page, error in
+ * the console" into a panel that names the missing variable.
+ */
+const apiKey = import.meta.env.VITE_WAASKEY_API_KEY as string | undefined;
+const baseUrl = import.meta.env.VITE_WAASKEY_BASE_URL as string | undefined;
+const missing = [
+  ['VITE_WAASKEY_API_KEY', apiKey],
+  ['VITE_WAASKEY_BASE_URL', baseUrl],
+]
+  .filter(([, value]) => !value)
+  .map(([name]) => name);
+
+function MissingConfig() {
+  return (
+    <main style={{ maxWidth: 480, margin: '4rem auto', fontFamily: 'system-ui' }}>
+      <h1>Configure the demo</h1>
+      <p>
+        Missing <code>{missing.join(', ')}</code>. Copy <code>.env.example</code> to <code>.env.local</code>, fill it in, and restart the dev server.
+      </p>
+      <p>
+        <code>VITE_WAASKEY_BASE_URL</code> is the API origin of your Waaskey deployment, including the <code>/api</code> prefix — there is no public sandbox.
+      </p>
+    </main>
+  );
+}
+
 export default function App() {
   const [session, setSession] = useState<EmbeddedSession | null>(null);
   const [open, setOpen] = useState(true);
 
   const options = useMemo(() => {
     const base = {
-      apiKey: import.meta.env.VITE_WAASKEY_API_KEY as string,
-      baseUrl: import.meta.env.VITE_WAASKEY_BASE_URL as string | undefined,
+      apiKey: apiKey ?? '',
+      baseUrl: baseUrl ?? '',
     };
     if (!session) return base;
     // Once logged in, wire the MPC core + a share store sealed with a session-derived secret.
@@ -64,6 +94,10 @@ export default function App() {
       shareStore: EncryptedShareStore.browser(`${session.token.slice(0, 32)}:demo-pad`),
     };
   }, [session]);
+
+  // Rendered before the provider: constructing the client without a base URL throws, so
+  // there is nothing useful to show behind it.
+  if (missing.length > 0) return <MissingConfig />;
 
   return (
     <WaasProvider options={options}>
