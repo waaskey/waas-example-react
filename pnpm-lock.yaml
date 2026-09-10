@@ -11,11 +11,11 @@ importers:
         specifier: 0.2.2
         version: 0.2.2
       '@waaskey/react':
-        specifier: 0.5.0
-        version: 0.5.0(@waaskey/sdk@0.4.2(@waaskey/client-wasm@0.2.2))(react@19.2.8)
+        specifier: 0.9.1
+        version: 0.9.1(@waaskey/sdk@0.9.1(@waaskey/client-wasm@0.2.2))(react@19.2.8)
       '@waaskey/sdk':
-        specifier: 0.4.2
-        version: 0.4.2(@waaskey/client-wasm@0.2.2)
+        specifier: 0.9.1
+        version: 0.9.1(@waaskey/client-wasm@0.2.2)
       react:
         specifier: ^19.1.0
         version: 19.2.8
@@ -371,12 +371,12 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: { integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw== }
 
-  '@noble/curves@2.2.0':
-    resolution: { integrity: sha512-T/BoHgFXirb0ENSPBquzX0rcjXeM6Lo892a2jlYJkqk83LqZx0l1Of7DzlKJ6jkpvMrkHSnAcgb5JegL8SeIkQ== }
+  '@noble/curves@2.4.0':
+    resolution: { integrity: sha512-P4/62zrgfH33CneE3Dn4WhJVA22YUU0eR51wKIan4NVRvwsA0YnPTwWGpNbpuacSujmSFLvyzpyuR30+fbq2Ew== }
     engines: { node: '>= 20.19.0' }
 
-  '@noble/hashes@2.2.0':
-    resolution: { integrity: sha512-IYqDGiTXab6FniAgnSdZwgWbomxpy9FtYvLKs7wCUs2a8RkITG+DFGO1DM9cr+E3/RgADRpFjrKVaJ1z6sjtEg== }
+  '@noble/hashes@2.4.0':
+    resolution: { integrity: sha512-X5XaVWZIBCT7HHZGm5I7ZQXDwLG+bGXuSrMQAW+7Zvl87h1kmc1ZB1VSRJcpUfoUrGQp4Fkoxm5kZ+Ms+aW+eA== }
     engines: { node: '>= 20.19.0' }
 
   '@rolldown/pluginutils@1.0.0-beta.27':
@@ -614,19 +614,19 @@ packages:
   '@waaskey/client-wasm@0.2.2':
     resolution: { integrity: sha512-4a5L8leAUceOxKe7d4P8qcfaorPBnDYrj12eK5oWuYwRdYc+gJxsxZWBYfNkVdRwGCORhyizGfkTTZLhOo9Oew== }
 
-  '@waaskey/react@0.5.0':
-    resolution: { integrity: sha512-pdKQu+OjMg4SKjami6jXrlExYK/wLLBJLaisdwuOY5D3HoILK+XpzujLswqHY49nDCPwjOsvEzu+hT+1/KvD4Q== }
+  '@waaskey/react@0.9.1':
+    resolution: { integrity: sha512-QneI4ZVNatgucyVC34iNn/PWRJgDi/1CeK2drqztkYz1dbP3riQ3qCMOD6WgQmKmPJBnJbxeU25vNVQJ+1cpZw== }
     engines: { node: '>=22' }
     peerDependencies:
-      '@waaskey/sdk': ^0.4.0
+      '@waaskey/sdk': ^0.9.1
       qrcode: ^1.5.0
       react: '>=18'
     peerDependenciesMeta:
       qrcode:
         optional: true
 
-  '@waaskey/sdk@0.4.2':
-    resolution: { integrity: sha512-AcvxeFUmTUnesaXAfKhEIEXDXfwyXJpctOZY1wgW62hRrWtTtKO1CS4e157R1+nAeGVLB5oHq6QyEHMOSWEkng== }
+  '@waaskey/sdk@0.9.1':
+    resolution: { integrity: sha512-nQAU2sW9Pc4Gm2xPHKBr7KIvSHRipXsZSOllg604o+qctpm3XGwEZxTw3n8J/rq4RqcJc9Ez6/LMQO/fHy+eCg== }
     engines: { node: '>=22' }
     peerDependencies:
       '@simplewebauthn/browser': ^13.0.0
@@ -1418,11 +1418,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@noble/curves@2.2.0':
+  '@noble/curves@2.4.0':
     dependencies:
-      '@noble/hashes': 2.2.0
+      '@noble/hashes': 2.4.0
 
-  '@noble/hashes@2.2.0': {}
+  '@noble/hashes@2.4.0': {}
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 
@@ -1639,14 +1639,15 @@ snapshots:
 
   '@waaskey/client-wasm@0.2.2': {}
 
-  '@waaskey/react@0.5.0(@waaskey/sdk@0.4.2(@waaskey/client-wasm@0.2.2))(react@19.2.8)':
+  '@waaskey/react@0.9.1(@waaskey/sdk@0.9.1(@waaskey/client-wasm@0.2.2))(react@19.2.8)':
     dependencies:
-      '@waaskey/sdk': 0.4.2(@waaskey/client-wasm@0.2.2)
+      '@waaskey/sdk': 0.9.1(@waaskey/client-wasm@0.2.2)
       react: 19.2.8
 
-  '@waaskey/sdk@0.4.2(@waaskey/client-wasm@0.2.2)':
+  '@waaskey/sdk@0.9.1(@waaskey/client-wasm@0.2.2)':
     dependencies:
-      '@noble/curves': 2.2.0
+      '@noble/curves': 2.4.0
+      '@noble/hashes': 2.4.0
       ws: 8.21.3
     optionalDependencies:
       '@waaskey/client-wasm': 0.2.2

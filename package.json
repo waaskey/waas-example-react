@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@waaskey/client-wasm": "0.2.2",
-    "@waaskey/react": "0.5.0",
-    "@waaskey/sdk": "0.4.2",
+    "@waaskey/react": "0.9.1",
+    "@waaskey/sdk": "0.9.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
